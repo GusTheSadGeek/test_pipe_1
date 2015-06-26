@@ -7,7 +7,7 @@ N="/tmp/Z${GO_PIPELINE_LABEL}_${GO_STAGE_NAME}_${GO_JOB_NAME}"
 env > ${N}.e.txt
 
 
-sleep 30
+sleep 5
 
 if ! [ "$1" == "" ] ; then
   cat $1 > ${GO_JOB_NAME}.txt
