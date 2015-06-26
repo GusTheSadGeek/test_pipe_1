@@ -1,20 +1,24 @@
 #!/bin/bash
 start=`date +%T`
+N="/tmp/Z${GO_PIPELINE_LABEL}_${GO_STAGE_NAME}_${GO_JOB_NAME}"
 
-env > ${1}.e.txt
+
+
+env > ${N}.e.txt
+
 
 sleep 30
 
-if ! [ "$2" == "" ] ; then
-  cat $2 > ${1}.txt
+if ! [ "$1" == "" ] ; then
+  cat $1 > ${GO_JOB_NAME}.txt
 else
-  rm -f ${1}.txt
+  rm -f ${GO_JOB_NAME}.txt
 fi
 
 finish=`date +%T`
 
-echo "$1 $start $finish" >> info.txt
-echo "$1 $start $finish" >> ${1}.txt
+echo "$GO_JOB_NAME $start $finish" >> ${N}.txt
+echo "$GO_JOB_NAME $start $finish" >> ${GO_JOB_NAME}.txt
 
 
 
